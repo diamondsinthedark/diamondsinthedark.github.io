@@ -10,13 +10,14 @@ body {
 }
 
 .gameContainer {
-  width: 100vw;
+  width: min-content;
   padding: 20px;
   border: 2px solid #79a54d;
 }
 
 .header {
   margin: 10px;
+  white-space: nowrap;
 }
 
 .footer {
@@ -24,6 +25,36 @@ body {
   color: #f3ebd5;
 }
 
+
+/*********************** user input ***********************/
+.inputContainer {
+  padding: 20px 10px 20px 10px; 
+}
+
+.textbox {
+  box-shadow: inset #f3ebd5 0 0 0 2px;
+  border: 0;
+  background: #181614;
+  appearance: none;
+  position: relative;
+  border-radius: 3px;
+  padding: 9px 12px;
+  line-height: 34px;
+  color: #f3ebd5;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
+  height: 36px;
+}
+
+.errors {
+  color: #df5f3f;
+  padding: 20px 10px;
+  display: none;
+}
+
+
+/*********************** guesses ***********************/
 .guessContainer {
   display: flex;
 }
@@ -40,18 +71,14 @@ body {
   padding: 20px;
 }
 
-.errors {
-  color: #df5f3f;
-  padding: 20px 10px;
-}
-
 .info {
   color: #79a54d;
   padding: 20px 10px;
 }
 
-.buttonBox {
-  padding: 20px 10px 20px 10px; 
+.gameOverContainer {
+  padding: 10px 10px 20px 10px; 
+  display: none;
 }
 
 /*********************** button ***********************/
@@ -72,22 +99,4 @@ body {
 
 .button:disabled {
   background-color: #31302f;
-}
-
-/*********************** textbox ***********************/
-.textbox {
-  box-shadow: inset #f3ebd5 0 0 0 2px;
-  border: 0;
-  background: #181614;
-  appearance: none;
-  position: relative;
-  border-radius: 3px;
-  padding: 9px 12px;
-  line-height: 34px;
-  color: #f3ebd5;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'Courier New', Courier, monospace;
-  height: 36px;
-  width: max-content;
 }
