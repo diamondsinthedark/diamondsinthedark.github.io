@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>GA Word Guessing Game</title>
+    <link rel="stylesheet" href="wordguessinggame.css">
+</head>
+<body>
+<div class="gameContainer">
+  <div class="header">
+    <h1>Glass Animals</h1>
+    <h2>word guessing game</h2>
+  </div>
+
+  <form action="javascript:;" onsubmit="onSubmit()">
+    <div class="buttonBox">
+      <input type="text" id="userInput" class="textbox" />
+      <input type="submit" id="guessButton" class="button" value="guess" />
+      <div class="errors" id="errorContainer" ></div>
+    </div>
+  </form>
+
+  <div class="guessContainer" id="guessContainer_1">
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+  </div>
+  <div class="guessContainer" id="guessContainer_2">
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+  </div>
+  <div class="guessContainer" id="guessContainer_3">
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+  </div>
+  <div class="guessContainer" id="guessContainer_4">
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+  </div>
+  <div class="guessContainer" id="guessContainer_5">
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+    <div class="guessLetter"></div>
+  </div>
+
+  
+  <div class="buttonBox">
+	<div class="info" id="infoContainer" ></div>
+	<input
+      type="button"
+      class="button"
+      style="visibility:hidden"
+      id="resetButton"
+      value="play again"
+      onclick="onReset()"
+    />
+  </div>
+    
+  
+  <div class="footer">
+	<hr/>
+    <h4>
+      All solutions are found within Glass Animals song lyrics and titles :) <br>There are over 400 distinct possibilities! Happy guessing!
+    </h4>
+    <p>
+      <i>Created by @diamonds.inthedark <3</i>
+    </p>
+  </div>
+</div>
+<script src="wordguessinggame.js"></script>
+</body>
+</html>

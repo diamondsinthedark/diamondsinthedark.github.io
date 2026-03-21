@@ -1,0 +1,94 @@
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #181614;
+  font-family: 'Courier New', Courier, monospace;
+  color: #79a54d;
+}
+
+.gameContainer {
+  width: min-content;
+  padding: 20px;
+  border: 2px solid #79a54d;
+}
+
+.header {
+  margin: 10px;
+}
+
+.footer {
+  margin: 30px 10px 0 10px;
+  color: #f3ebd5;
+}
+
+.guessContainer {
+  display: flex;
+  min-width: 375px;
+}
+
+.guessContainer div {
+  background-color: #181614;
+  box-shadow: inset #f3ebd5 0 0 0 2px;
+  color: #f3ebd5;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
+  border: 0;
+  margin: 10px;
+  padding: 20px;
+}
+
+.errors {
+  color: #df5f3f;
+  padding: 20px 10px;
+}
+
+.info {
+  color: #79a54d;
+  padding: 20px 10px;
+}
+
+.buttonBox {
+  padding: 20px 10px 20px 10px; 
+}
+
+/*********************** button ***********************/
+.button {
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  height: 36px;
+  line-height: 34px;
+  color: #f3ebd5;
+  background-color: #79a54d;
+  padding: 0 18px;
+}
+
+.button:disabled {
+  background-color: #31302f;
+}
+
+/*********************** textbox ***********************/
+.textbox {
+  box-shadow: inset #f3ebd5 0 0 0 2px;
+  border: 0;
+  background: #181614;
+  appearance: none;
+  position: relative;
+  border-radius: 3px;
+  padding: 9px 12px;
+  line-height: 34px;
+  color: #f3ebd5;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
+  height: 36px;
+  width: max-content;
+}
