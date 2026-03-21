@@ -72,10 +72,16 @@ function gameOver(wonTF, message) {
   document.getElementById("resetButton").style = "visibility:visible";
   document.getElementById("userInput").disabled = true;
   document.getElementById("guessButton").disabled = true;
+  
+  document.getElementById("gameOverContainer").style.display = "block";
 }
 
 function error(message) {
   document.getElementById("errorContainer").innerText = message;
+  if(message !== null)
+	document.getElementById("errorContainer").style.display = "block";
+  else
+	document.getElementById("errorContainer").style.display = "none";
 }
 
 function onReset() {
