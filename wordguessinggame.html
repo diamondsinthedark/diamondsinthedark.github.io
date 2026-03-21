@@ -5,14 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GA Word Guessing Game</title>
     <link rel="stylesheet" href="wordguessinggame.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png">
 </head>
 <body>
+<div class="pageContainer">
+<div class="header">
+    <h1>GA Word Guessing Game</h1>
+	<h4>
+    All solutions are found within Glass Animals song lyrics and titles :) <br>There are over 400 distinct possibilities! Happy guessing!
+	</h4>
+</div>
 <div class="gameContainer">
-  <div class="header">
-    <h1>Glass Animals</h1>
-    <h2>word guessing game</h2>
-  </div>
-
   <form action="javascript:;" onsubmit="onSubmit()">
     <div class="inputContainer">
       <input type="text" id="userInput" class="textbox" />
@@ -20,7 +23,6 @@
       <div class="errors" id="errorContainer" ></div>
     </div>
   </form>
-
   <div class="guessContainer" id="guessContainer_1">
     <div class="guessLetter">&nbsp;</div>
     <div class="guessLetter">&nbsp;</div>
@@ -56,8 +58,6 @@
     <div class="guessLetter">&nbsp;</div>
     <div class="guessLetter">&nbsp;</div>
   </div>
-
-  
   <div id="gameOverContainer" class="gameOverContainer">
 	<div class="info" id="infoContainer" ></div>
 	<input
@@ -69,18 +69,13 @@
       onclick="onReset()"
     />
   </div>
-    
-  
-  <div class="footer">
-	<hr/>
-    <h4>
-      All solutions are found within Glass Animals song lyrics and titles :) <br>There are over 400 distinct possibilities! Happy guessing!
-    </h4>
-    <p>
-      <i>Created by @diamonds.inthedark <3</i>
-    </p>
-  </div>
+</div> <!--end game container -->
+<div class="footer">  
+  <p>
+    <i>Created by @diamonds.inthedark <3</i>
+  </p>
 </div>
+</div> <!--end page container -->
 <script src="wordguessinggame.js"></script>
 </body>
 </html>
