@@ -11,7 +11,9 @@ body {
 
 
 .pageContainer {
-  width: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .gameContainer {
@@ -21,7 +23,8 @@ body {
 }
 
 .header {
-  margin: 10px;
+  margin: 8px;
+  text-align: center;
 }
 
 .header h1 {
@@ -29,9 +32,9 @@ body {
 }
 
 .footer {
-  margin: 10px;
+  margin: 8px;
   color: #f3ebd5;
-  text-align: right;
+  font-size: 12px;
 }
 
 
