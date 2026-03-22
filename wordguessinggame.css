@@ -25,6 +25,7 @@ body {
 .header {
   margin: 8px;
   text-align: center;
+  padding: 0 8px 0 8px;
 }
 
 .header h1 {
