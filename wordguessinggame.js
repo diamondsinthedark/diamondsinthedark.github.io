@@ -496,6 +496,18 @@ function getSolutionWord() {
     "flood",
     "press",
     "third",
+	"peter",
+	"piper",
+	"baker",
+	"maker",
+	"clock",
+	"cross",
+	"titty",
+	"spank",
+	"diddy",
+	"tower",
+	"piggy",
+	"claws"
   ];
 
   return wordBank[getRandomInt(0, wordBank.length - 1)]
