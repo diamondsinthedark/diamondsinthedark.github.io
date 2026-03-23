@@ -25,17 +25,30 @@ body {
 .header {
   margin: 8px;
   text-align: center;
-  padding: 0 8px 0 8px;
+  padding: 8px;
 }
 
 .header h1 {
   white-space: nowrap;
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 5rem)
+}
+
+.header h2 {
+  white-space: nowrap;
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3.5rem)
+}
+
+
+.header h4 {
+  font-size: clamp(1rem, 2vw, 1.8rem)
 }
 
 .footer {
   margin: 8px;
   color: #f3ebd5;
-  font-size: 12px;
+  font-size: clamp(0.8rem, 1.5vw, 1rem)
 }
 
 
@@ -54,7 +67,7 @@ body {
   padding: 9px 12px;
   line-height: 34px;
   color: #f3ebd5;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 500;
   font-family: 'Courier New', Courier, monospace;
   height: 36px;
@@ -78,7 +91,7 @@ body {
   border: 0;
   border-radius: 3px;
   color: #f3ebd5;
-  font-size: 24px;
+  font-size: 1.3rem;
   font-weight: 500;
   font-family: 'Courier New', Courier, monospace;
   margin: 10px;
@@ -91,15 +104,16 @@ body {
 }
 
 .gameOverContainer {
-  padding: 10px 10px 20px 10px; 
+  padding: 0 10px 20px 10px; 
   display: none;
+  text-align: center;
 }
 
 /*********************** button ***********************/
 .button {
   outline: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.3rem;
   font-weight: 500;
   font-family: 'Courier New', Courier, monospace;
   border: 1px solid transparent;
