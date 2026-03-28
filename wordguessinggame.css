@@ -30,10 +30,6 @@ a {
   color: #79a54d;
 }
 
-a:visited {
-  color: #31302f;
-}
-
 .pageContainer {
   display: flex;
   flex-direction: column;
