@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA Word Guessing Game</title>
+    <link rel="stylesheet" href="wordguessinggame.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png">
+</head>
+<body>
+<div class="pageContainer">
+<div class="header">
+    <h1><u>Glass Animals</u></h1>
+	<h2>Word Guessing Game</h2>
+</div>
+<div class="gameContainer">
+  <form action="javascript:;" onsubmit="onSubmit()">
+    <div class="inputContainer">
+      <input type="text" id="userInput" class="textbox" placeholder="type here..."/>
+      <input type="submit" id="guessButton" class="button" value="guess" style="display:block;" />
+    </div>
+    <div class="errors" id="errorContainer" ></div>
+  </form>
+  <div class="guessContainer" id="guessContainer_1">
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+  </div>
+  <div class="guessContainer" id="guessContainer_2">
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+  </div>
+  <div class="guessContainer" id="guessContainer_3">
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+  </div>
+  <div class="guessContainer" id="guessContainer_4">
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+    <div class="guessLetter">&nbsp;</div>
+  </div>
+  <div id="gameOverContainer" class="gameOverContainer">
+	<div class="info" id="infoContainer" ></div>
+	<input
+      type="button"
+      class="button"
+      style="visibility:hidden"
+      id="resetButton"
+      value="play again"
+      onclick="onReset()"
+    />
+  </div>
+<div class="switchVersion">
+	<p><a href="/wordguessinggame.html">Switch to 5-letter version</a></p>
+</div>
+<div class="footer">  
+  <h4><u>How to Play:</u></h4>
+  <p>There's a secret word. Try to guess the word!</p>
+  <p>If you guess a correct letter but it's in the wrong spot, it will turn <span style="color: #C9A647;">yellow</span>.</p>
+  <p>If you guess a letter and it's in the right spot, it will turn <span style="color: #79A54d;">green</span>!</p>
+  <p>Keep guessing until all letters are green.</p>
+  </p>All solutions are found within Glass Animals song lyrics and titles (including covers).</p>
+  <p>Enjoy!</p>
+  <hr/>
+  <p/><i>created by @diamonds.inthedark <3</i></p>
+</div> <!--end footer -->
+</div> <!--end game container -->
+</div> <!--end page container -->
+<script src="wordguessinggame.js"></script>
+</body>
+</html>

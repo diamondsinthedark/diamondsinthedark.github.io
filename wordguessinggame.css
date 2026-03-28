@@ -23,8 +23,15 @@ h2 {
 
 h4 {
   margin: 0;
-  color: #79a54d;
   font-size: clamp(1rem, 2vw, 1.2rem)
+}
+
+a {
+  color: #79a54d;
+}
+
+a:visited {
+  color: #31302f;
 }
 
 .pageContainer {
@@ -46,16 +53,24 @@ h4 {
 }
 
 .footer {
-  margin: 8px;
   color: #f3ebd5;
-  text-align: center;
-  font-size: clamp(0.8rem, 1.5vw, 1rem)
+  text-align: left;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin: 10px 0;
 }
 
+.switchVersion {
+  text-align: center;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin: 10px 0;
+}
 
 /*********************** user input ***********************/
 .inputContainer {
   padding: 20px 10px 20px 10px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .textbox {
@@ -75,8 +90,10 @@ h4 {
 }
 
 .errors {
+  text-align: center;
   color: #df5f3f;
-  padding: 20px 10px;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin: 0 0 10px 0;
   display: none;
 }
 
@@ -124,6 +141,7 @@ h4 {
   color: #f3ebd5;
   background-color: #79a54d;
   padding: 0 18px;
+  margin: 0 0 0 12px;
 }
 
 .button:disabled {

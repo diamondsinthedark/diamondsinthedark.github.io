@@ -18,8 +18,8 @@
     <div class="inputContainer">
       <input type="text" id="userInput" class="textbox" placeholder="type here..."/>
       <input type="submit" id="guessButton" class="button" value="guess" />
-      <div class="errors" id="errorContainer" ></div>
     </div>
+    <div class="errors" id="errorContainer" ></div>
   </form>
   <div class="guessContainer" id="guessContainer_1">
     <div class="guessLetter">&nbsp;</div>
@@ -67,13 +67,21 @@
       onclick="onReset()"
     />
   </div>
-</div> <!--end game container -->
-<div class="footer">  
-  <p>
-	<h4>All solutions are found within Glass Animals song lyrics and titles. There are over 400 distinct words you could get! Happy guessing :)</h4>
-    <br/><i>created by @diamonds.inthedark <3</i>
-  </p>
+<div class="switchVersion">
+	<p><a href="/explicitwordguessinggame.html">Switch to 4-letter version</a></p>
 </div>
+<div class="footer">  
+  <h4><u>How to Play:</u></h4>
+  <p>There's a secret word. Try to guess the word!</p>
+  <p>If you guess a correct letter but it's in the wrong spot, it will turn <span style="color: #C9A647;">yellow</span>.</p>
+  <p>If you guess a letter and it's in the right spot, it will turn <span style="color: #79A54d;">green</span>!</p>
+  <p>Keep guessing until all letters are green.</p>
+  </p>All solutions are found within Glass Animals song lyrics and titles (including covers).</p>
+  <p>Enjoy!</p>
+  <hr/>
+  <p/><i>created by @diamonds.inthedark <3</i></p>
+</div> <!--end footer -->
+</div> <!--end game container -->
 </div> <!--end page container -->
 <script src="wordguessinggame.js"></script>
 </body>
