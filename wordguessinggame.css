@@ -1,58 +1,8 @@
-html,
-body {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  background-color: #181614;
-  font-family: 'Courier New', Courier, monospace;
-  color: #79a54d;
-}
-
-h1 {
-  white-space: nowrap;
-  margin: 0;
-  font-size: clamp(2.5rem, 6vw, 5rem)
-}
-
-h2 {
-  white-space: nowrap;
-  margin: 0;
-  font-size: clamp(1.8rem, 4vw, 3.5rem)
-}
-
-h4 {
-  margin: 0;
-  font-size: clamp(1rem, 2vw, 1.2rem)
-}
-
-a {
-  color: #79a54d;
-}
-
-.pageContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .gameContainer {
   width: min-content;
   padding: 8px;
   border: 2px solid #79a54d;
-}
-
-.header {
-  margin: 8px;
-  text-align: center;
-  padding: 8px;
-}
-
-.footer {
-  color: #f3ebd5;
-  text-align: left;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  margin: 10px 0;
 }
 
 
