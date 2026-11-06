@@ -12,24 +12,24 @@ body {
 h1 {
   white-space: nowrap;
   margin: 0;
-  font-size: clamp(2.5rem, 6vw, 5rem)
+  font-size: clamp(2rem, 5vw, 5rem)
 }
 
 h2 {
   white-space: nowrap;
   margin: 0;
-  font-size: clamp(1.8rem, 4vw, 3.5rem)
+  font-size: clamp(1.6rem, 4vw, 3.5rem)
 }
 
 h3 {
   white-space: nowrap;
   margin: 0;
-  font-size: clamp(1.6rem, 3vw, 3.2rem)
+  font-size: clamp(1.2rem, 3vw, 3rem)
 }
 
 h4 {
   margin: 0;
-  font-size: clamp(1rem, 2vw, 1.2rem)
+  font-size: clamp(0.8rem, 2vw, 1.5rem)
 }
 
 a:link {
@@ -48,7 +48,7 @@ a:visited {
 
 .footer {
   color: #f3ebd5;
-  text-align: left;
+  text-align: center;
   font-size: clamp(0.8rem, 1.5vw, 1rem);
   margin: 10px 0;
 }
@@ -58,4 +58,9 @@ a:visited {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+hr{
+	border: none;
+	border: 1px dashed #f3ebd5;
 }
