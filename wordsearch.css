@@ -1,0 +1,25 @@
+
+.gameContainer {
+  width: min-content;
+  padding: 8px;
+  border: 2px solid #79a54d;
+}
+
+.gridRowContainer{
+  display: flex;
+}
+
+.gridRowContainer div {
+	background-color: #181614;
+	/** box-shadow: inset #f3ebd5 0 0 0 2px;
+	border: 0;
+	border-radius: 3px;*/
+	color: #f3ebd5;
+	font-size: 1.7rem;
+	font-weight: 500;
+	font-family: 'Courier New', Courier, monospace;
+	/** margin: 10px;*/
+	padding: 2px;
+	height: 30px;
+	width: 30px;
+}
