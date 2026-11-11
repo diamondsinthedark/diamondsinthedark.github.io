@@ -55,11 +55,11 @@ switchButton_4.addEventListener("click", function(){
 function writeHTMLForGuesses(guessLimit, wordLength) {
 	let allGuesses = document.getElementById("allGuesses");
 	allGuesses.innerHTML = '';
-	
 	let newInnerHTML = '';
+	
 	for (i = 0; i < guessLimit; i++) {
-		let guessContainerNum = i + 1;
-		newInnerHTML = newInnerHTML + '<div class="guessContainer" id="guessContainer_' + guessContainerNum + '">\n';
+		let guessRowNum = i + 1;
+		newInnerHTML = newInnerHTML + '<div class="guessRow" id="guessRow_' + guessRowNum + '">\n';
 		for(j = 0; j < wordLength; j++) {
 			newInnerHTML = newInnerHTML + '<div class="guessLetter">&nbsp;</div>\n';
 		}
@@ -99,7 +99,7 @@ function onSubmit() {
 	}
 
 	//get the current guess row
-	let letters = document.getElementById("guessContainer_" + guessCount).getElementsByClassName("guessLetter");
+	let letters = document.getElementById("guessRow_" + guessCount).getElementsByClassName("guessLetter");
 
 	for (x = 0; x <= input.length - 1; x++) {
 		//put each input letter into its slot and color gray by default
