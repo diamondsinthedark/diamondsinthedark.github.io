@@ -5,20 +5,23 @@ let guessCount = 1;
 let guessLimit = 6;
 let wordLength = 5;
 
+let version = 5;
 
-/***************5v4 logic***************/
-let switchButton_5 = document.getElementById("switchButton_5");
-let switchButton_4 = document.getElementById("switchButton_4");
+//initialize game to 5 letter version
+newGame5letters();
 
-//simulate clicking the 5-letter button by default
-document.addEventListener('DOMContentLoaded', () => {
-	switchButton_5.click();
-});
 
-//5 letter button
-switchButton_5.addEventListener("click", function(){
+//reset game board to 5 letter version
+function newGame5letters(){
+	//reset game
+	newGame();
+	
 	//clear any previous errors
 	error(null);
+	
+	version = 5;
+	
+	let switchButton_5 = document.getElementById("switchButton_5");
 	
 	switchButton_5.innerText = "> 5-letter words <";
 	switchButton_5.style.backgroundColor = '#79a54d'; //green
@@ -31,12 +34,19 @@ switchButton_5.addEventListener("click", function(){
 	solution = get5LetterWords();
 		
 	writeHTMLForGuesses(guessLimit, wordLength);
- });
-
-//4 letter button
-switchButton_4.addEventListener("click", function(){
+ }
+ 
+//reset game board to 4 letter version 
+function newGame4letters(){
+	//reset game
+	newGame();
+	
 	//clear any previous errors
 	error(null);
+	
+	version = 4;
+	
+	let switchButton_4 = document.getElementById("switchButton_4");
 	
 	switchButton_4.innerText = "> 4-letter words <";
 	switchButton_4.style.backgroundColor = '#79a54d'; //green
@@ -49,7 +59,7 @@ switchButton_4.addEventListener("click", function(){
 	solution = get4LetterWords();
 	
 	writeHTMLForGuesses(guessLimit, wordLength);
- });
+}
 
 //dynamically write the html to hold user guesses
 function writeHTMLForGuesses(guessLimit, wordLength) {
@@ -92,45 +102,45 @@ function onSubmit() {
 		let input = document.getElementById("userInput").value;
 		input = input.toString().toUpperCase().trim();
 
-	//validate user text
-	if (input.length != wordLength) {
-		error("Your guess must be " + wordLength + " characters");
-	return;
-	}
-
-	//get the current guess row
-	let letters = document.getElementById("guessRow_" + guessCount).getElementsByClassName("guessLetter");
-
-	for (x = 0; x <= input.length - 1; x++) {
-		//put each input letter into its slot and color gray by default
-		letters[x].textContent = input.charAt(x);
-		letters[x].style.backgroundColor = "#31302f";
-
-		if (solution.includes(input.charAt(x))) {
-			//input char exists in solution word: color yellow
-			letters[x].style.backgroundColor = "#C9A647";
-			if (input.charAt(x) === solution.charAt(x)) {
-				//input char matches solution char at x: color green
-				letters[x].style.backgroundColor = "#79a54d";
-			}
+		//validate user text
+		if (input.length != wordLength) {
+			error("your guess must be " + wordLength + " characters");
+			return;
 		}
-	} //end forloop
 
-	//on last guess, didn't win
-	if (guessCount == guessLimit && input.localeCompare(solution) != 0) {
-		gameOver(false, "No more guesses :( Try again!");
-		return;
-	}
+		//get the current guess row
+		let letters = document.getElementById("guessRow_" + guessCount).getElementsByClassName("guessLetter");
 
-	//winning scenario
-	if (input.localeCompare(solution) == 0) {
-		gameOver(true, "You won! Want to play again?");
-		return;
-	}
+		for (x = 0; x <= input.length - 1; x++) {
+			//put each input letter into its slot and color gray by default
+			letters[x].textContent = input.charAt(x);
+			letters[x].style.backgroundColor = "#31302f";
 
-	//increment count and clear the textbox to continue guessing
-	guessCount++;
-	document.getElementById("userInput").value = null;
+			if (solution.includes(input.charAt(x))) {
+				//input char exists in solution word: color yellow
+				letters[x].style.backgroundColor = "#C9A647";
+				if (input.charAt(x) === solution.charAt(x)) {
+					//input char matches solution char at x: color green
+					letters[x].style.backgroundColor = "#79a54d";
+				}
+			}
+		} //end forloop
+
+		//on last guess, didn't win
+		if (guessCount == guessLimit && input.localeCompare(solution) != 0) {
+			gameOver(false, "no more guesses :( try again!");
+			return;
+		}
+
+		//winning scenario
+		if (input.localeCompare(solution) == 0) {
+			gameOver(true, "you won! want to play again?");
+			return;
+		}
+
+		//increment count and clear the textbox to continue guessing
+		guessCount++;
+		document.getElementById("userInput").value = null;
 	}
 } //end onSubmit
 
@@ -141,11 +151,30 @@ function gameOver(wonTF, message) {
 	if(!wonTF)
 		document.getElementById("infoContainer").style.color = "#f3ebd5"
 
-	document.getElementById("resetButton").style = "visibility:visible";
+	document.getElementById("playAgainButton").style = "visibility:visible";
 	document.getElementById("userInput").disabled = true;
 	document.getElementById("guessButton").disabled = true;
 
 	document.getElementById("gameOverContainer").style.display = "block";
+}
+
+/***************play again***************/
+function playAgain(){
+	if (version === 5) 
+		newGame5letters();
+	else if (version === 4) 
+		newGame4letters();
+	else
+		newGame5letters(); //failsafe
+}
+
+/***************new game***************/
+function newGame(){
+	document.getElementById("gameOverContainer").style.display = "none";
+	document.getElementById("playAgainButton").style = "visibility:hidden";
+	document.getElementById("userInput").disabled = false;
+	document.getElementById("userInput").value = null;
+	document.getElementById("guessButton").disabled = false;
 }
 
 /***************error***************/
@@ -155,10 +184,6 @@ function error(message) {
 		document.getElementById("errorContainer").style.display = "block";
 	else
 		document.getElementById("errorContainer").style.display = "none";
-}
-
-function onReset() {
-	location.reload();
 }
 
 function get4LetterWords(){

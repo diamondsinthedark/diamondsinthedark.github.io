@@ -15,8 +15,8 @@
 	<h2>Wordle</h2>
 </div>
 <div class="switchVersionContainer">
-	<button class="switchButton" id="switchButton_5">5-letter words</button>
-	<button class="switchButton" id="switchButton_4">4-letter words</button>
+	<button class="switchButton" id="switchButton_5" onclick="newGame5letters()">5-letter words</button>
+	<button class="switchButton" id="switchButton_4" onclick="newGame4letters()">4-letter words</button>
 </div>
 <div class="gameContainer">
   <form action="javascript:;" onsubmit="onSubmit()">
@@ -31,14 +31,7 @@
   </div> <!--end allGuesses -->
   <div id="gameOverContainer" class="gameOverContainer">
 	<div class="info" id="infoContainer" ></div>
-	<input
-      type="button"
-      class="button"
-      style="visibility:hidden"
-      id="resetButton"
-      value="play again"
-      onclick="onReset()"
-    />
+		<input type="button" class="button" style="visibility:hidden" id="playAgainButton" value="play again" onclick="playAgain()"/>
   </div>
 <div class="instructionsContainer">
 	<div class="collapsible" id="howToPlay">+ how to play +</div>
