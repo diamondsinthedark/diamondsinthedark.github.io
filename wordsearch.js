@@ -1,7 +1,9 @@
 
-const gridSize = 10;
-const gridArray = [];
-const wordList = ["dreamland", "tourist", "perfect", "digital", "bizarre", "touch", "canned"];
+const gridSize = 30;
+const numWords = 15;
+let gridArray = [];
+let wordList = [];
+let usedWordList = [];
 let directions = ["NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST"];
 
 /////////////////////////////////////////////////////////////////////////////
@@ -16,11 +18,13 @@ class GridLetter{
 
 
 initGridArray();
+getWordList();
 loopWordList();
 writeGridHTML();
 writeWordBankHTML();
 
 
+//Initialize the array to hold the grid letters
 function initGridArray(){
 	for (let x = 0; x < gridSize; x++){
 		gridArray[x] = [];
@@ -30,27 +34,49 @@ function initGridArray(){
 	}
 }
 
-//TODO handle condition where word is never able to be placed
-function loopWordList(){
-	for(let w = 0; w < wordList.length; w++){
-		let successTF = false;
+function getWordList(){
+	wordList = ["golden antlers", "cocoa hooves", "dust in your pocket", "cocoa hooves part ii", "psylla", "black mambo", "exxus", "woozy", "flip", "pools", "gooey", "walla walla", "intruxx", "hazey", "toes", "wyrd", "jdnt", "holiest", "lose control", "life itself", "youth", "season two episode three", "pork soda", "mamas gun", "cane shuga", "premade sandwiches", "the other side of paradise", "take a slice", "poplar st", "agnes", "dreamland", "tangerine", "hot sugar", "space ghost coast to coast", "tokyo drifting", "melon and the coconut", "your love", "waterfalls coming out your mouth", "its all so incredibly loud", "domestic bliss", "heat waves", "helium", "i dont wanna talk", "show pony", "whatthehellishappening", "creatures in heaven", "wonderful nothing", "a tear in space", "i cant make you fall in love again", "how i learned to love the bomb", "white roses", "on the run", "lost in the ocean", "vampire bat"];
+	
+	wordList = shuffleArray(wordList);
+}
 
-		while(!successTF){
-			//get random starting spot
-			let initialX = getRandomInt(0, gridSize - 1);
-			let initialY = getRandomInt(0, gridSize - 1);
+//loop through word list
+function loopWordList(){
+	let usedWords = 0;
+	let wordCounter = 0;
+	
+	while(usedWords != numWords){
+		let successTF = false;
+		let wordToTry = wordList[wordCounter];
+		
+		//get random starting spot
+		let initialX = getRandomInt(0, gridSize - 1);
+		let initialY = getRandomInt(0, gridSize - 1);
 			
-			//shuffle directions array to get random order of directions 
-			directions = shuffleArray(directions);
-			
-			for(let d = 0; d < directions.length; d++){
-				successTF = placeWord(wordList[w], initialX, initialY, directions[d]);
-				if(successTF) break;
+		//shuffle directions array to get random order of directions 
+		directions = shuffleArray(directions);
+		
+		//try each direction 
+		for(let d = 0; d < directions.length; d++){
+			successTF = placeWord(wordToTry.replaceAll(" ",""), initialX, initialY, directions[d]);
+			if(successTF){ 
+				usedWordList.push(wordToTry);
+				usedWords++;
+				break;
 			}
 		}
+		
+		// if(!successTF)
+			// console.log("Unable to place '" + wordToTry + "'. Aborting.");
+		// else 
+			// console.log("Successfully placed '" + wordToTry + "'.");
+		
+		//try the next word
+		wordCounter++;
 	}
 }
 
+//try to put the word in the grid
 function placeWord(word, startX, startY, direction){
 	//console.log("calling placeWord with: " + word + " starting at x: " + startX + " y: " + startY + " going " + direction);
 	
@@ -73,7 +99,7 @@ function placeWord(word, startX, startY, direction){
 		else if(gridLetter.letter !== null && gridLetter.letter === word.charAt(c)){
 			//mark this slot as an overlap letter, don't break
 			gridLetter.isOverlap = true;
-			//console.log("overlap condition. current word: " + word + " current letter: " + word.charAt(c));
+			console.log("overlap condition. current word: " + word + " current letter: " + word.charAt(c));
 		}
 		else{
 			//success, place letter
@@ -132,12 +158,14 @@ function writeGridHTML(){
 		newInnerHTML = newInnerHTML + '<div class="gridRowContainer">\n';
 		for (x = 0; x < gridSize; x++) {
 			let gridLetter = gridArray[x][y];
-			newInnerHTML = newInnerHTML + '<div class="slot" id="' + x + "-" + y + '">';
+			newInnerHTML = newInnerHTML + '<div class="slot" onclick="letterClicked(this)" id="' + x + "-" + y + '">';
 			
 			if(gridLetter.letter !== null)
 				newInnerHTML += gridLetter.letter; //place actual letter
-			else
-				newInnerHTML += "-"; //getRandomLetter()//.toUpperCase(); //place random letter
+			else{
+				//newInnerHTML += "-"; 
+				newInnerHTML += getRandomLetter(); //place random letter
+			}
 			
 			newInnerHTML+= '</div>\n';
 		}//inner for
@@ -151,14 +179,17 @@ function writeWordBankHTML(){
 	let wordBank = document.getElementById("wordBank");
 	let newInnerHTML = "";
 	
-	for(w = 0; w < wordList.length; w++){
-		newInnerHTML += '<div>' + wordList[w] + '</div>';
+	for(w = 0; w < usedWordList.length; w++){
+		newInnerHTML += '<div>' + usedWordList[w] + '</div>';
 	}
 	
 	wordBank.innerHTML = newInnerHTML;
-
 }
 
+function letterClicked(element){
+	console.log("letterClicked called with " + element.id);
+	element.style.backgroundColor = "#79A54D";
+}
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -169,9 +200,8 @@ function getRandomInt(min, max) {
 }
 
 function getRandomLetter(){
-	const alphabet = "abcdefghijklmnopqrstuvwxyz";
+	const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-	//console.log(randomLetter); // e.g., "k"
 	return randomLetter;
 }
 
