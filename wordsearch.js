@@ -35,19 +35,61 @@ function initGridArray(){
 }
 
 function getWordList(){
-	wordList = ["golden antlers", "cocoa hooves", "dust in your pocket", "cocoa hooves part ii", "psylla", "black mambo", "exxus", "woozy", "flip", "pools", "gooey", "walla walla", "intruxx", "hazey", "toes", "wyrd", "jdnt", "holiest", "lose control", "life itself", "youth", "season two episode three", "pork soda", "mamas gun", "cane shuga", "premade sandwiches", "the other side of paradise", "take a slice", "poplar st", "agnes", "dreamland", "tangerine", "hot sugar", "space ghost coast to coast", "tokyo drifting", "melon and the coconut", "your love", "waterfalls coming out your mouth", "its all so incredibly loud", "domestic bliss", "heat waves", "helium", "i dont wanna talk", "show pony", "whatthehellishappening", "creatures in heaven", "wonderful nothing", "a tear in space", "i cant make you fall in love again", "how i learned to love the bomb", "white roses", "on the run", "lost in the ocean", "vampire bat"];
-	
-	wordList = shuffleArray(wordList);
+	wordList = ["young and stupid",
+			"rock and roll star",
+			"wise little smile",
+			"spoke so safely",
+			"one way ticket",
+			"out west",
+			"stuck in a bedsit",
+			"poolside riches",
+			"wore versace",
+			"pink feather coats",
+			"jumbo jewelry",
+			"hoop phenomenon",
+			"hakeen olajuwon",
+			"gold camaro",
+			"over the payphone",
+			"keep my cool",
+			"in slow motion",
+			"the wicked truth",
+			"caught up in a rush",
+			"screamin at the sun",
+			"curled up in a grip",
+			"you might run",
+			"settle for a ghost",
+			"super paradise", 
+			"treat his lady",
+			"his new baby",
+			"i miss him",
+			"stone cold crazy",
+			"camera lust",
+			"pappy pipe dream",
+			"but i still try",
+			"my thunder came",
+			"shook him down",
+			"that girl is gone",
+			"the bullet hit",
+			"fuckin numb",
+			"it hits my head", 
+			"lookin wrong",
+			"baby blue",
+			"its killin you",
+			"when we were us",
+			"fingers in a fist",
+			"i never knew",
+			"i held onto",
+			"settle for a ghost"];
 }
 
 //loop through word list
 function loopWordList(){
-	let usedWords = 0;
-	let wordCounter = 0;
+	//let usedWords = 0;
+	//let wordCounter = 0;
 	
-	while(usedWords != numWords){
+	for(let w = 0; w < wordList.length; w++){
 		let successTF = false;
-		let wordToTry = wordList[wordCounter];
+		let wordToTry = wordList[w];
 		
 		//get random starting spot
 		let initialX = getRandomInt(0, gridSize - 1);
@@ -61,18 +103,18 @@ function loopWordList(){
 			successTF = placeWord(wordToTry.replaceAll(" ",""), initialX, initialY, directions[d]);
 			if(successTF){ 
 				usedWordList.push(wordToTry);
-				usedWords++;
+				//usedWords++;
 				break;
 			}
 		}
 		
-		// if(!successTF)
-			// console.log("Unable to place '" + wordToTry + "'. Aborting.");
-		// else 
-			// console.log("Successfully placed '" + wordToTry + "'.");
+		if(!successTF)
+			console.log("Unable to place '" + wordToTry + "'. Aborting.");
+		else 
+			console.log("Successfully placed '" + wordToTry + "'.");
 		
 		//try the next word
-		wordCounter++;
+		//wordCounter++;
 	}
 }
 
@@ -163,8 +205,8 @@ function writeGridHTML(){
 			if(gridLetter.letter !== null)
 				newInnerHTML += gridLetter.letter; //place actual letter
 			else{
-				//newInnerHTML += "-"; 
-				newInnerHTML += getRandomLetter(); //place random letter
+				newInnerHTML += "-"; 
+				//newInnerHTML += getRandomLetter(); //place random letter
 			}
 			
 			newInnerHTML+= '</div>\n';
